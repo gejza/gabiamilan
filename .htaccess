@@ -30,3 +30,7 @@ RewriteRule ^domains/[^/]+/(.+[^/])$ /$1/ [R]
 # subdomeny - spravne presmerovani pri chybejicim /
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^subdom/[^/]+/(.+[^/])$ /$1/ [R]
+
+Options +FollowSymLinks
+RewriteRule ^/test/([a-z-]*) index.php?p=$1 [QSA,L]
+
