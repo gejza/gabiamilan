@@ -1,0 +1,1 @@
+<div class="card">Vítáme Vás na našem svatebním webu. Najdete zde veškeré informace k nadcházející události. Zatím jsou stránky ve výstavbě, tak prosíme za strpení, postupně to tu budeme plnit. </div>
