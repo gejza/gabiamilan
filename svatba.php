@@ -30,7 +30,7 @@ function g_img($src, $alt)
 function g_menu($name, $alt)
 {
     print('<div class="col-md-2 col-xs-4 menuimg">');
-    print('<a href="?p='.$name.'">');
+    print('<a href="/svatba/'.$name.'">');
     g_img($name.'.png', $alt);
     print('</a></div>');
 }
