@@ -99,17 +99,19 @@ p {
 } 
 
 /* Galerie */
-.gallery {border: 1px solid #ccc;}
-.gallery:hover {border: 1px solid #777;}
+.gallery {
+  margin: 1px;
+  float: left;
+  width: 16%;
+  }
 .gallery img {
-  width: 20%;
+  width: 100%;
   height: auto;
 }
 .desc {
   padding: 15px;
   text-align: center;
 }
-
 
 .responsive {
   padding: 0 6px;
