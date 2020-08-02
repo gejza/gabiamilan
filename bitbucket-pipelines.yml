@@ -11,7 +11,8 @@ pipelines:
         caches:
           - composer
         script:
-          - apt-get update && apt-get install -y composer
+          - apt-get update && apt-get install -y unip
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer install
     - step:
         name: Deploy to wedos
