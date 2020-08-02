@@ -5,7 +5,6 @@ function g_file($page)
 {
     $pages = array('sraz' => 'sraz.html', 'obrad'=>'obrad.html', 
        'obed' => 'obed.html', 'raut'=>'raut.html', 'dort'=>'dort.html', 'zabava'=>'zabava.html');
-    error_log($pages);
     if(array_key_exists($page, $pages)){
         return $pages[$page];
     }
