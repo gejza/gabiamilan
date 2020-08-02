@@ -58,7 +58,6 @@ function g_menu($name, $alt)
 <div class="mezera"></div>
 
 <div class="container">
-<div class="column middle">
 <?php
 
 $condir = __DIR__ . '/page';
@@ -88,7 +87,6 @@ default:
     break;   
 }
 ?>
-</div>
 </div>
 
 <div class="footer">© 2020 Gabriela Štěpánová a Milan Dünghübel</div>

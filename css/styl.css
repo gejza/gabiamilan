@@ -33,14 +33,8 @@ body {
   color: black;
 }
 
-/* Sloupce */
-
-.column.middle {width: 70%; margin: auto}
-
-
 /* Karty */
 .card {
-  background-color: white;
   padding: 20px;
   margin-top: 10px;
   text-align: center 
@@ -71,8 +65,12 @@ caption {
 td a:hover { text-decoration: none; color: #a6ede7 }
 td a:link { text-decoration: none; color: #7c7c7c }
 
+.page-title {
+  text-align: center;
+  font-family: "Unicorn Calligraphy", monospace;
+}
 
-h1 {
+h21 {
   text-align: center;
   font-size: 70px;
   font-family: "Unicorn Calligraphy", monospace;
