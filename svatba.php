@@ -11,6 +11,14 @@ function g_file($page)
     return 'home.html';
 }
 
+function gen_nav($name, $alt)
+{
+    $u = '/svatba/'.$name;
+    if ($_SERVER['SERVER_PORT'] == '8000') {
+        $u = '/svatba.php?p='.$name;
+    }
+    return array('name'=>$name, 'url'=>$u, 'alt'=>$alt);
+}
 
 /*$loader = new \Twig\Loader\ArrayLoader([
     'index' => 'Hello {{ name }}!',
@@ -26,12 +34,12 @@ $twig->addExtension(new Kint\Twig\TwigExtension());
 
 $data = array();
 $dm = array();
-$dm[] = array('name'=>'sraz', 'alt'=>'Příjezd');
-$dm[] = array('name'=>'obrad', 'alt'=>'Obřad');
-$dm[] = array('name'=>'obed', 'alt'=>'Oběd');
-$dm[] = array('name'=>'raut', 'alt'=>'Raut');
-$dm[] = array('name'=>'dort', 'alt'=>'Dort');
-$dm[] = array('name'=>'zabava', 'alt'=>'Zábava');
+$dm[] = gen_nav('sraz', 'Příjezd');
+$dm[] = gen_nav('obrad', 'Obřad');
+$dm[] = gen_nav('obed', 'Oběd');
+$dm[] = gen_nav('raut', 'Raut');
+$dm[] = gen_nav('dort', 'Dort');
+$dm[] = gen_nav('zabava', 'Zábava');
 $data['menu'] = $dm;
 
 $data['fver'] = 28;
@@ -43,6 +51,8 @@ $data['page'] = $page;
 $pf = g_file($page);
 $data['filename'] = $pf;
 
+$data['server'] = $_SERVER;
+
 if ($page == 'obed') {
     $data['tips']  = [ 
         ['title' => 'Hrad Valdštejn', 'img' => 'tip/valdstejn.jpg', 'url' => 'http://www.hrad-valdstejn.cz/', 'desc'=>'Valdštejn (Waldstein) je zřícenina v okrese Semily blízko Turnova, v oblasti Českého ráje. Rodový hrad pánů z Valdštejna pochází z druhé poloviny 13. století. Je jedním z nejstarších hradů v tomto kraji.'],
@@ -53,7 +63,7 @@ if ($page == 'obed') {
     ];
 }
 
-echo $twig->render($pf, $data);
+echo $twig->render($pf.'.twig', $data);
 
 function g_img($src, $alt)
 {
