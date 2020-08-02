@@ -19,7 +19,7 @@ $twig = new \Twig\Environment($loader);
 
 echo $twig->render('index', ['name' => 'Fabien']);*/
 
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/templ');
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/templates');
 $twig = new \Twig\Environment($loader,['debug' => true,] /* ['cache' => 'compilation_cache',]*/);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 $twig->addExtension(new Kint\Twig\TwigExtension());
@@ -34,6 +34,10 @@ $dm[] = array('name'=>'dort', 'alt'=>'Dort');
 $dm[] = array('name'=>'zabava', 'alt'=>'Zábava');
 $data['menu'] = $dm;
 
+$data['fver'] = 28;
+if ($_GET['debug']) {
+    $data['debug_out'] = true;
+}
 $page = $_GET['p'];
 $data['page'] = $page;
 $pf = g_file($page);

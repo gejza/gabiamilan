@@ -8,12 +8,12 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest?v=<?php echo($fver); ?>">
+        <link rel="manifest" href="/site.webmanifest?v={{fver}}">
     
         <title>Gabi a Milan</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/css/styl.css?v=<?php echo($fver); ?>">
+        <link rel="stylesheet" type="text/css" href="/css/styl.css?v={{fver}}">
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56377132-3"></script>
         <script>
@@ -59,8 +59,10 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
     {% endblock %}
-    <!-- <pre class="invisible">
+    {% if debug_out == true %}
+    <pre>
         {{ dump() }}
-    </pre> -->
+    </pre>
+    {% endif %}
 </body>
 </html>
