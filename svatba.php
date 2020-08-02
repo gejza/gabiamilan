@@ -94,7 +94,7 @@ default:
 </div>
 
 <div class="footer">© 2020 Gabriela Štěpánová a Milan Dünghübel</div>
-
+<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Svatba+G%2BM&location=ohrazenice&dates=20200822T020200Z%2F20200823T020200Z">Udalost</a>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
 
