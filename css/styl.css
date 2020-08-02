@@ -87,7 +87,7 @@ h21 {
 }
 h2 {
   text-align: center;
-  font-size: 35px;
+  font-size: 25px;
   font-family: "Unicorn Calligraphy", monospace;
 
 }
@@ -99,10 +99,12 @@ p {
 
 /* Galerie */
 .gallery {
-  margin: 5px;
+  /* margin: 5px;
   float: left;
-  width: 100%;
+  width: 100%;*/
+  min-height: 550px;
   }
+
 .gallery img {
   width: 100%;
   height: auto;
@@ -112,11 +114,7 @@ p {
   text-align: center;
 }
 
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 24.99999%;
-}
+/*
 
 .clearfix:after {
   content: "";
@@ -129,3 +127,4 @@ p {
   display: table;
   height: 70px
 }
+*/
