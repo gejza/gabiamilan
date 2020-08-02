@@ -69,7 +69,7 @@ if ($page == 'obed') {
     ];
 }
 
-Kint::dump($data);
+//Kint::dump($data);
 echo $twig->render($pf.'.twig', $data);
 
 function g_img($src, $alt)
