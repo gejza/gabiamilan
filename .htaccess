@@ -33,6 +33,8 @@ RewriteRule ^subdom/[^/]+/(.+[^/])$ /$1/ [R]
 
 RewriteRule "^svatba/(.*)$" "/svatba.php?p=$1" [B,PT]
 
+ErrorDocument 500 /error.html
+ErrorDocument 404 /not-found.php
 
 # BEGIN Compress text files
 <ifModule mod_deflate.c>
