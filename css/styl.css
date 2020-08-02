@@ -23,7 +23,9 @@ body {
   height: 110px;
 }
 
-
+.jumbotron {
+  background-color: #fffef2;
+}
 
 /* barva linků menu */
 .menuimg a:hover {

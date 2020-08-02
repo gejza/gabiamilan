@@ -37,7 +37,7 @@ function g_menu($name, $alt)
 ?>
 
 <div class="jumbotron text-center">
-      <a href="index.php" class=""><?php g_img('venec.png', 'Venec'); ?></a>
+      <a href="/svatba" class=""><?php g_img('venec.png', 'Venec'); ?></a>
         </div>
    
       <div class="container">
