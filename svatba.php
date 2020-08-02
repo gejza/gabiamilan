@@ -87,7 +87,7 @@ if ($_GET['debug']) {
 $page = $_GET['p'];
 $data['page'] = $page;
 
-if (strlen($page) >= 5) {
+if (strlen($page) > 6) {
     check_invite($page);
     $pf = 'invite.html';
     $pf = '404.html';
