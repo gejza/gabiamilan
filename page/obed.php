@@ -55,9 +55,12 @@ if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
 
-            echo ('<pre>');
+            /*echo ('<pre>');
             var_dump($row);
-            echo ('</pre>');
+            echo ('</pre>');*/
+
+            echo ('<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">'.$row['title'].'</h3></div>');
+            echo ('<div class="panel-body">'.$row['desc'].'</div></div>');
 
             /*echo "<tr>";
                 echo "<td>" . $row['id'] . "</td>";
