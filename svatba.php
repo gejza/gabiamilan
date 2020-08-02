@@ -80,7 +80,7 @@ $data['menu'] = $dm;
  
 //Kint::$enabled_mode = false; // Disable kint
 
-$data['fver'] = 29;
+$data['fver'] = 30;
 if ($_GET['debug']) {
     $data['debug_out'] = true;
 }
