@@ -13,6 +13,7 @@
         <title>Gabi a Milan</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/countdown.css">
         <link rel="stylesheet" type="text/css" href="/css/styl.css?v={{fver}}">
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56377132-3"></script>
@@ -26,12 +27,15 @@
         {% endblock %}
     </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top text-center">
+<div class='countdown' data-date="2020-08-22" data-time="12:00"></div>
+</nav>
 
 <div class="jumbotron text-center">
       <a href="/svatba" class=""><img class="mx-auto d-block" src="/img/venec.png" /></a>
         </div>
    
-      <div class="container">
+      <div class="container" id="nav">
       <div class="row">
         {% for nav in menu %}
             <div class="col-md-2 col-xs-4 menuimg">
@@ -58,6 +62,7 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/countdown.js?v=22"></script>
     {% endblock %}
     {% if debug_out == true %}
     <pre>

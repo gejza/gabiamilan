@@ -5,6 +5,7 @@ body {
   font-family: "Proxima Nova", Yu Gothic, Arial, sans-serif; 
   padding: 0px;
   background: white;
+  padding-top: 30px;
 }
 .hlavicka { 
     font-family: "Unicorn Calligraphy", monospace;  
@@ -30,6 +31,7 @@ body {
 
 .jumbotron {
   background-color: #fffef2;
+  padding-bottom: 0px;
 }
 
 /* barva linků menu */

@@ -13,9 +13,9 @@ function g_file($page)
 
 function gen_nav($name, $alt)
 {
-    $u = '/svatba/'.$name;
+    $u = '/svatba/'.$name.'#nav';
     if ($_SERVER['SERVER_PORT'] == '8000') {
-        $u = '/svatba.php?p='.$name;
+        $u = '/svatba.php?p='.$name.'#nav';
     }
     return array('name'=>$name, 'url'=>$u, 'alt'=>$alt);
 }
@@ -42,6 +42,12 @@ $dm[] = gen_nav('dort', 'Dort');
 $dm[] = gen_nav('zabava', 'Zábava');
 $data['menu'] = $dm;
 
+//Kint::dump($GLOBALS, $_SERVER); // Dump any number of variables
+ 
+//Kint::trace(); // Dump a debug backtrace
+ 
+//Kint::$enabled_mode = false; // Disable kint
+
 $data['fver'] = 28;
 if ($_GET['debug']) {
     $data['debug_out'] = true;
@@ -63,6 +69,7 @@ if ($page == 'obed') {
     ];
 }
 
+Kint::dump($data);
 echo $twig->render($pf.'.twig', $data);
 
 function g_img($src, $alt)
