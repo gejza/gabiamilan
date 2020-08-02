@@ -65,7 +65,7 @@ td, th { height: 50px; width: 100px; text-align: left}
 caption { 
   text-align: center;
   font-size: 50px;
-  font-family: "Unicorn Calligraphy", monospace;
+  font-family: "Courier New", monospace;
   color: #a6ede7;
   text-decoration: underline
 } 
@@ -74,13 +74,13 @@ td a:link { text-decoration: none; color: #7c7c7c }
 
 .page-title {
   text-align: center;
-  font-family: "Unicorn Calligraphy", monospace;
+  font-family: "Courier New", monospace;
 }
 
 h21 {
   text-align: center;
   font-size: 70px;
-  font-family: "Unicorn Calligraphy", monospace;
+  font-family: "Courier New", monospace;
   color: #a6ede7;
   text-decoration: underline
 }
