@@ -52,7 +52,7 @@
     <p class="lead">Valdštejn (Waldstein) je zřícenina v okrese Semily blízko Turnova, v oblasti Českého ráje. Rodový hrad pánů z Valdštejna pochází z druhé poloviny 13. století. Je jedním z nejstarších hradů v tomto kraji.</p>
   </div>
   <div class="col-md-5">
-    <img class="featurette-image img-responsive center-block" data-src="/img/tip/valdstejn.jpg" alt="Hrad Valdštejn">
+    <img class="featurette-image img-responsive center-block" src="/img/tip/valdstejn.jpg" alt="Hrad Valdštejn">
   </div>
 </div>
 
