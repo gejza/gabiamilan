@@ -14,7 +14,7 @@ function g_file($page)
 function gen_nav($name, $alt)
 {
     $u = '/svatba/'.$name.'#nav';
-    if ($_SERVER['SERVER_PORT'] == '8000') {
+    if ($_SERVER['SERVER_PORT'] == '8000' || $_SERVER['SERVER_PORT'] == '3000') {
         $u = '/svatba.php?p='.$name.'#nav';
     }
     return array('name'=>$name, 'url'=>$u, 'alt'=>$alt);
