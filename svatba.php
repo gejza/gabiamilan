@@ -1,6 +1,11 @@
 <?php
 require_once 'vendor/autoload.php';
 
+function is_local()
+{
+    return $_SERVER['SERVER_PORT'] == '8000' || $_SERVER['SERVER_PORT'] == '3000';
+}
+
 function g_file($page)
 {
     $pages = array('sraz' => 'sraz.html', 'obrad'=>'obrad.html', 
@@ -14,7 +19,7 @@ function g_file($page)
 function gen_nav($name, $alt)
 {
     $u = '/svatba/'.$name.'#nav';
-    if ($_SERVER['SERVER_PORT'] == '8000' || $_SERVER['SERVER_PORT'] == '3000') {
+    if (is_local()) {
         $u = '/svatba.php?p='.$name.'#nav';
     }
     return array('name'=>$name, 'url'=>$u, 'alt'=>$alt);
@@ -33,6 +38,7 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 $twig->addExtension(new Kint\Twig\TwigExtension());
 
 $data = array();
+$data['siteurl'] = is_local() ? '/svatba.php' : '/svatba';
 $dm = array();
 $dm[] = gen_nav('sraz', 'Příjezd');
 $dm[] = gen_nav('obrad', 'Obřad');
