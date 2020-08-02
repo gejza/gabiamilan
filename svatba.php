@@ -1,4 +1,4 @@
-<?php $fver='24'; ?>
+<?php $fver='25'; ?>
 <!DOCTYPE html>
     <html lang="cs">
     <head>
