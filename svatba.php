@@ -31,14 +31,14 @@ function g_img($src, $alt)
 function g_menu($name, $alt)
 {
     print('<div class="col-md-2 col-xs-4 menuimg">');
-    print('<a href="/svatba/'.$name.'">');
+    print('<a href="/svatba/'.$name.'?v=26">');
     g_img($name.'.png', $alt);
     print('</a></div>');
 }
 ?>
 
 <div class="jumbotron text-center">
-      <a href="/svatba" class=""><?php g_img('venec.png', 'Venec'); ?></a>
+      <a href="/e905107989956639.ics" class=""><?php g_img('venec.png', 'Venec'); ?></a>
         </div>
    
       <div class="container">
