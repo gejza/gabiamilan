@@ -94,15 +94,14 @@ h2 {
 
 p {
   text-align: justify;
-  text-indent: 30px;
   line-height: normal
 } 
 
 /* Galerie */
 .gallery {
-  margin: 1px;
+  margin: 5px;
   float: left;
-  width: 16%;
+  width: 100%;
   }
 .gallery img {
   width: 100%;
