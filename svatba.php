@@ -6,6 +6,32 @@ function is_local()
     return $_SERVER['SERVER_PORT'] == '8000' || $_SERVER['SERVER_PORT'] == '3000';
 }
 
+function check_invite($key)
+{
+    // Create connection
+    $conn = new mysqli(is_local() ? 'localhost':'md84.wedos.net','a251653_sv1','Svatba_228','d251653_sv1');
+    if ($conn->connect_error) {
+        die('Nepodařilo se připojit k MySQL serveru (' . $conn->connect_errno . ') '. $conn->connect_error);
+    }
+    // Escape special characters, if any
+    $key2 = $conn->real_escape_string($key);
+    $sql="SELECT * FROM invite WHERE `key`='$key2'";
+    //Kint::dump($sql);
+    if ($vysledek = $conn->query($sql)) {
+        echo 'Z databáze jsme získali ' . $vysledek->num_rows . ' uživatelů.';
+
+        while ($uzivatel = $vysledek->fetch_assoc())
+        {
+            Kint::dump($uzivatel);
+        printf("%s %s \n", $uzivatel['Jmeno'], $uzivatel['Prijmeni']);
+        }
+        $vysledek->free_result();
+    
+    }
+
+    $conn->close();
+}
+
 function g_file($page)
 {
     $pages = array('sraz' => 'sraz.html', 'obrad'=>'obrad.html', 
@@ -60,8 +86,16 @@ if ($_GET['debug']) {
 }
 $page = $_GET['p'];
 $data['page'] = $page;
-$pf = g_file($page);
-$data['filename'] = $pf;
+
+if (strlen($page) > 6) {
+    check_invite($page);
+    $pf = 'invite.html';
+    $pf = '404.html';
+}
+else {
+    $pf = g_file($page);
+    $data['filename'] = $pf;
+}
 
 $data['server'] = $_SERVER;
 
