@@ -21,6 +21,11 @@ body {
 .menuimg img {
   margin-bottom: 10px;
   height: 110px;
+
+  -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
 .jumbotron {
@@ -28,9 +33,9 @@ body {
 }
 
 /* barva linků menu */
-.menuimg a:hover {
-  border-bottom-style: solid;
-  color: black;
+.menuimg a:hover img {
+  -webkit-transform: scale(1.2);
+	transform: scale(1.2);
 }
 
 /* Karty */
