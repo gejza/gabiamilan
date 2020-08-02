@@ -1,1 +1,6 @@
 svatba1/
+vendor/
+temp/
+compilation_cache/
+deployment.dev.log
+
