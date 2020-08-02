@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 return [
-	'my site' => [
+	'gabiamilan' => [
 		'remote' => 'ftp://251653.w53.wedos.net/',
 		'user' => 'w251653_w',
 		'password' => 'Svatba_228',
@@ -32,7 +32,7 @@ return [
 	/favicon.ico
 	/site.webmanifest
 	/svatba.php
-	/templ
+	/templates
         ',
 
 		'allowDelete' => true,
