@@ -4,7 +4,7 @@
 
 {% for tip in tips %}
 <hr class="featurette-divider">
-<div class="row featurette">
+<a class="row featurette" href="{{tip.url}}">
   {% if loop.index is odd %}
   <div class="col-md-7">
     {% else %}
@@ -18,10 +18,9 @@
     {% else %}
     <div class="col-md-5 col-md-pull-7">
     {% endif %}
-    <a href="{{tip.url}}">
-    <img class="featurette-image img-responsive center-block" src="/img/{{tip.img}}" alt="{{tip.title}}"></a>
+    <img class="featurette-image img-responsive center-block" src="/img/{{tip.img}}" alt="{{tip.title}}">
   </div>
-</div>
+</a>
 {% endfor %}
 
 {% endblock %}
