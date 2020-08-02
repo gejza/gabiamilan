@@ -7,17 +7,6 @@ body {
   background: white;
   padding-top: 30px;
 }
-.hlavicka { 
-    font-family: "Unicorn Calligraphy", monospace;  
-}      
-.hlavicka a {
-  font-size: 40px;
-}
-
-.jumbotro2n {
-  margin: 60px 0;
-  text-align: center;
-}
 
 .menuimg img {
   margin-bottom: 10px;
@@ -59,35 +48,15 @@ body {
   height: 50px
 }
 
-/* Tabulky */
-table { margin: auto}
-td, th { height: 50px; width: 100px; text-align: left}
-caption { 
-  text-align: center;
-  font-size: 50px;
-  font-family: "Unicorn Calligraphy", monospace;
-  color: #a6ede7;
-  text-decoration: underline
-} 
-td a:hover { text-decoration: none; color: #a6ede7 }
-td a:link { text-decoration: none; color: #7c7c7c }
-
 .page-title {
   text-align: center;
-  font-family: "Unicorn Calligraphy", monospace;
+  font-family: "Courier New", monospace;
 }
 
-h21 {
-  text-align: center;
-  font-size: 70px;
-  font-family: "Unicorn Calligraphy", monospace;
-  color: #a6ede7;
-  text-decoration: underline
-}
 h2 {
   text-align: center;
-  font-size: 35px;
-  font-family: "Unicorn Calligraphy", monospace;
+  font-size: 25px;
+  font-family: "Courier New", monospace;
 
 }
 
