@@ -1,14 +1,15 @@
+<?php $fver='24'; ?>
 <!DOCTYPE html>
     <html lang="cs">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <link rel="icon" type="image/ico" href="/favicon.ico?v=<?php echo($fver); ?>" />
         <title>Gabi a Milan</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css" href="/css/styl.css?v=23">
+        <link rel="stylesheet" type="text/css" href="/css/styl.css?v=<?php echo($fver); ?>">
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56377132-3"></script>
 <script>
@@ -24,7 +25,7 @@
 <?php
 function g_img($src, $alt)
 {
-    print('<img class="mx-auto d-block" src="/img/'. $src. '?v=2" alt="'.$alt.'" />');
+    print('<img class="mx-auto d-block" src="/img/'. $src. '?v=25" alt="'.$alt.'" />');
 }
 
 function g_menu($name, $alt)
