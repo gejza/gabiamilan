@@ -16,8 +16,8 @@ pipelines:
           - composer install
           - vendor/bin/phpunit
     - step:
-        name: Deploy to test
-        deployment: testbed
+        name: Deploy to wedos
+        deployment: wedos
         script:
           - composer deploy:dev
 
