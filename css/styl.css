@@ -2,7 +2,8 @@
 * {box-sizing: border-box; margin: 0px}
 
 body {
-  font-family: "Courier New", Yu Gothic, Arial, sans-serif; 
+  font-family: "Courier New", Yu Gothic, Arial, sans-serif;
+  font-size: large; 
   padding: 0px;
   background: white;
   padding-top: 30px;
@@ -101,7 +102,7 @@ p {
 .gallery {border: 1px solid #ccc;}
 .gallery:hover {border: 1px solid #777;}
 .gallery img {
-  width: 100%;
+  width: 20%;
   height: auto;
 }
 .desc {
