@@ -15,27 +15,32 @@ function check_invite($key)
     }
     // Escape special characters, if any
     $key2 = $conn->real_escape_string($key);
-    $sql="SELECT * FROM invite WHERE `key`='$key2'";
+    $sql="SELECT * FROM invite WHERE `keyh`='$key2'";
     //Kint::dump($sql);
+    //Kint::trace();
+    $ret = false;
+
     if ($vysledek = $conn->query($sql)) {
-        echo 'Z databáze jsme získali ' . $vysledek->num_rows . ' uživatelů.';
+        // echo 'Z databáze jsme získali ' . $vysledek->num_rows . ' uživatelů.';
 
         while ($uzivatel = $vysledek->fetch_assoc())
         {
-            Kint::dump($uzivatel);
-        printf("%s %s \n", $uzivatel['Jmeno'], $uzivatel['Prijmeni']);
+            //Kint::dump($uzivatel);
+        //printf("%s %s \n", $uzivatel['Jmeno'], $uzivatel['Prijmeni']);
+            $ret = true;
         }
         $vysledek->free_result();
     
     }
 
     $conn->close();
+    return $ret;
 }
 
 function g_file($page)
 {
     $pages = array('sraz' => 'sraz.html', 'obrad'=>'obrad.html', 
-       'obed' => 'obed.html', 'raut'=>'raut.html', 'dort'=>'dort.html', 'zabava'=>'zabava.html');
+       'obed' => 'obed.html', 'raut'=>'raut.html', 'dort'=>'dort.html', 'zabava'=>'zabava.html', 'invite' => 'invite.html');
     if(array_key_exists($page, $pages)){
         return $pages[$page];
     }
@@ -65,6 +70,37 @@ $twig->addExtension(new Kint\Twig\TwigExtension());
 
 $data = array();
 $data['siteurl'] = is_local() ? '/svatba.php' : '/svatba';
+$page = $_GET['p'];
+$data['page'] = $page;
+
+
+$keyh = '';
+if (strlen($page) > 6) {
+    $keyh = $page;
+    $pf = 'invite.html';
+}
+else if (isset($_COOKIE['keyh'])) {
+    $keyh = $_COOKIE['keyh'];
+}
+
+if (strlen($page) < 7) {
+    $pf = g_file($page);
+    $data['filename'] = $pf;
+}
+
+if ($keyh != '') {
+    if (check_invite($keyh)) {
+        // Setting a cookie
+        setcookie('keyh', $keyh, time()+30*24*60*60);
+    }
+    else {
+        $keyh = '';
+        setcookie('keyh', '', 1);
+        $pf = '404.html';
+    }
+}
+$data['keyh'] = $keyh;
+
 $dm = array();
 $dm[] = gen_nav('sraz', 'Příjezd');
 $dm[] = gen_nav('obrad', 'Obřad');
@@ -72,32 +108,26 @@ $dm[] = gen_nav('obed', 'Oběd');
 $dm[] = gen_nav('raut', 'Raut');
 $dm[] = gen_nav('dort', 'Dort');
 $dm[] = gen_nav('zabava', 'Zábava');
+
+if ($keyh != '') {
+    $dm[] = gen_nav('invite', 'Pozvani');
+}
+
 $data['menu'] = $dm;
 
-//Kint::dump($GLOBALS, $_SERVER); // Dump any number of variables
+Kint::dump($GLOBALS, $_SERVER); // Dump any number of variables
  
 //Kint::trace(); // Dump a debug backtrace
  
 //Kint::$enabled_mode = false; // Disable kint
 
 $data['fver'] = 30;
-if ($_GET['debug']) {
-    $data['debug_out'] = true;
-}
-$page = $_GET['p'];
-$data['page'] = $page;
-
-if (strlen($page) > 6) {
-    check_invite($page);
-    $pf = 'invite.html';
-    $pf = '404.html';
-}
-else {
-    $pf = g_file($page);
-    $data['filename'] = $pf;
-}
+//if ($_GET['debug']) {
+//    $data['debug_out'] = true;
+//}
 
 $data['server'] = $_SERVER;
+Kint::dump($_COOKIE, $_REQUEST);  
 
 if ($page == 'obed') {
     $data['tips']  = [ 
@@ -120,7 +150,7 @@ $data['team']  = [
     ['title' => 'Mládenec Filip', 'alt' => 'Filip', 'img' => '/img/photo/filip.jpg', 'desc' => 'Za Fílou si můžete přijít popovídat. V poslední době je u něj velké téma Minecraft, takže pokud chtece herní rady, nebo diskuze, určitě rád pomůže.'],
 ];
 
-//Kint::dump($data);
+Kint::dump($data);
 echo $twig->render($pf.'.twig', $data);
 
 function g_img($src, $alt)

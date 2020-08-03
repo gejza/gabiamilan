@@ -50,6 +50,12 @@
 
 <div class="mezera"></div>
 
+{% if keyh != '' %}
+<div class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+{% endif %}
+
 <div class="container content">
     {% block content %}{% endblock %}
 </div>
