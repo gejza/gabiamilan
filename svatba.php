@@ -80,7 +80,7 @@ $data['menu'] = $dm;
  
 //Kint::$enabled_mode = false; // Disable kint
 
-$data['fver'] = 30;
+$data['fver'] = 31;
 if ($_GET['debug']) {
     $data['debug_out'] = true;
 }
@@ -114,8 +114,8 @@ $data['team']  = [
     ['title' => 'Nevěsta', 'alt' => 'Gabriela', 'img' => '/img/photo/gabi.jpg', 'desc' => 'Nejvíc nejdůležitější osoba na celé svatbě. Cokoliv si bude přát, musí jí být vyplněno.'],
     ['title' => 'Svědek Michal', 'alt' => 'Michal', 'img' => '/img/photo/michal.jpg', 'desc' => 'Michal zodpovídá za celou svatbu. V případě, že budete chtít znát nějaké informace, Michal Vám rád pomůže, bude ten nejlépe informovaný.'],
     ['title' => 'Svědkyně Míša', 'alt' => 'Míša', 'img' => '/img/photo/misa.jpg', 'desc' => 'Zde se obracejte pokud Vám bude scházet kofein, nebo v jakýkoliv organizačních záležitostech.'],
-    ['title' => 'Družicka Wendy', 'alt' => 'Wendy', 'img' => '/img/photo/wendy.jpg', 'desc' => 'Tady je zodpovědná odoba za zásobování, když dojde jídlo, nebo pití zkuste si vyškemrat u Wendy.'],
-    ['title' => 'Družička Káťa', 'alt' => 'Káťa', 'img' => '/img/photo/kata.jpg', 'desc' => 'Tady je zodpovědná odoba za zásobování č.2, když dojde jídlo, nebo pití zkuste si vyškemrat u Wendy, když Vám nic nedá, zkuste ještě Káťu.'],
+    ['title' => 'Družička Wendy', 'alt' => 'Wendy', 'img' => '/img/photo/wendy.jpg', 'desc' => 'Tady je zodpovědná osoba za zásobování, když dojde jídlo, nebo pití zkuste si vyškemrat u Wendy.'],
+    ['title' => 'Družička Káťa', 'alt' => 'Káťa', 'img' => '/img/photo/kata.jpg', 'desc' => 'Tady je zodpovědná osoba za zásobování č.2, když dojde jídlo, nebo pití zkuste si vyškemrat u Wendy, když Vám nic nedá, zkuste ještě Káťu.'],
     ['title' => 'Družička Ella', 'alt' => 'Ella', 'img' => '/img/photo/ella.jpg', 'desc' => 'Od Elly se toho dá čekat hodně, ale s dotazy se na ní neobracejte. Když budete chtít něco namalovat, tak to bude ta pravá koho hledáte.'],
     ['title' => 'Mládenec Filip', 'alt' => 'Filip', 'img' => '/img/photo/filip.jpg', 'desc' => 'Za Fílou si můžete přijít popovídat. V poslední době je u něj velké téma Minecraft, takže pokud chtece herní rady, nebo diskuze, určitě rád pomůže.'],
 ];
