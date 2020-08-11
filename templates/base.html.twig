@@ -65,7 +65,7 @@
 
 {% if keyh != '' %}
 <div class="alert alert-success">
-  <strong>Success!</strong> {{user.what_color() }} Indicates a successful or positive action.
+  <strong>Success!</strong> {{user.what_color() }} Indicates a successful or positive action. {{ getenv('TEST_VAR') }}
 </div>
 {% endif %}
 

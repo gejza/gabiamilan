@@ -1,5 +1,21 @@
 <?php
-require_once 'vendor/autoload.php';
+
+//use App\Kernel;
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\ErrorHandler\Debug;
+//use Symfony\Component\HttpFoundation\Request;
+
+require_once __DIR__.'/vendor/autoload.php';
+
+(new Dotenv())->bootEnv(__DIR__.'/.env');
+
+if ($_SERVER['APP_DEBUG']) {
+    umask(0000);
+
+    Debug::enable();
+}
+
+//require_once 'vendor/autoload.php';
 
 mb_internal_encoding("UTF-8");
 
@@ -79,8 +95,8 @@ $pagectl = new \gam\SvatbaPage();
 // echo $twig->render($pf.'.twig', $data);
 
 try {
-
-    echo $pagectl->page($_GET['p']);
+    $page = array_key_exists('p', $_REQUEST) ? $_REQUEST['p'] : '';
+    echo $pagectl->page($page);
 }
 catch (Exception $e) {
     echo $e->getMessage();

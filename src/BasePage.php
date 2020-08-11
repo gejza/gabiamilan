@@ -16,6 +16,11 @@ class BasePage {
         $this->twig = new \Twig\Environment($loader,['debug' => false,] /* ['cache' => 'compilation_cache',]*/);
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
         $this->twig->addExtension(new \Kint\Twig\TwigExtension());
+        $this->twig->addFunction(
+            new \Twig\TwigFunction('getenv', function ($key) {
+                return $_SERVER[$key];
+            })
+        );
 
         $this->data['gitcommit'] = file_get_contents(__DIR__.'/../git.version');
 
@@ -41,10 +46,11 @@ class BasePage {
         $dm[] = \gam\Utils::gen_nav('dort', 'Dort');
         $dm[] = \gam\Utils::gen_nav('zabava', 'Zábava');
 
-        if ($keyh != '') {
-            $dm[] = \gam\Utils::gen_nav('invite', 'Pozvani');
-        }
+//        if ($keyh != '') {
+//            $dm[] = \gam\Utils::gen_nav('invite', 'Pozvani');
+//        }
 
+        $this->data['debug_out'] = 1;
         $this->data['menu'] = $dm;
 
         $this->pf = 'home.html';
@@ -52,7 +58,7 @@ class BasePage {
 
     function render($pf)
     {
-        //\Kint::dump($this->data);
+        \Kint::dump($this->data);
         return $this->twig->render($pf.'.twig', $this->data);
     }
  
