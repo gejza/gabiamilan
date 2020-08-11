@@ -60,7 +60,7 @@
     },
     "sort-packages": true,
     "platform": {
-      "php": "7.3"
+      "php": "7.3.18"
     }
   },
   "autoload": {
