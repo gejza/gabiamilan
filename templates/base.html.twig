@@ -24,6 +24,16 @@
 
             gtag('config', 'UA-56377132-3');
         </script>
+        <!-- PushAlert -->
+        <script type="text/javascript">
+                (function(d, t) {
+                        var g = d.createElement(t),
+                        s = d.getElementsByTagName(t)[0];
+                        g.src = "https://cdn.pushalert.co/integrate_70b83648ef266400c94dc8c2cdfefa5c.js";
+                        s.parentNode.insertBefore(g, s);
+                }(document, "script"));
+        </script>
+        <!-- End PushAlert -->
         {% endblock %}
     </head>
 <body>
@@ -49,6 +59,12 @@
 
 
 <div class="mezera"></div>
+
+{% if keyh != '' %}
+<div class="alert alert-success">
+  <strong>Success!</strong> {{user.what_color() }} Indicates a successful or positive action.
+</div>
+{% endif %}
 
 <div class="container content">
     {% block content %}{% endblock %}
