@@ -34,16 +34,14 @@ jobs:
   fast_finish: true
   include:
     # Run tests with the dependencies from composer.lock
-    - php: 7.2
-    - php: 7.3
     - php: 7.4
 
     # Run tests against dev (currently 5.1.x-dev)
-    - php: 7.3
+    - php: 7.4
       env: STABILITY=dev ACTION=update
 
     # Run tests against dev-master (currently 5.2.x-dev)
-    - php: 7.3
+    - php: 7.4
       env: STABILITY=dev SYMFONY=5.* ACTION=update
 
 before_install:
@@ -56,6 +54,7 @@ before_install:
   - if symfony self:version; then symfony self:update --yes ; else wget https://get.symfony.com/cli/installer -O - | bash ; fi
 
 install:
+  - composer self-update
   - php -r "echo ini_get('memory_limit').PHP_EOL;"
   # Install or update Composer packages including dev dependencies listed in require-dev.
   - COMPOSER_MEMORY_LIMIT=-1 composer $ACTION
