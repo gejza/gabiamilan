@@ -5,12 +5,13 @@
         "kint-php/kint": "^3.3",
         "kint-php/kint-twig": "^3.0",
         "symfony/var-dumper": "^5.1",
-        "phpstan/phpstan": "^0.12.34",
+        "phpstan/phpstan": "^0.12.37",
         "nette/tester": "^2.3",
-        "dg/ftp-deployment": "^3.3"
+        "dg/ftp-deployment": "^3.3",
+        "symfony/dotenv": "^5.1"
     },
     "scripts": {
-    "deploy:dev": "php vendor/dg/ftp-deployment/deployment deployment.dev.php"
+    "deploy:dev": "php vendor/dg/ftp-deployment/deployment deployment.ini"
   },
   "autoload": {
     "psr-4": {
