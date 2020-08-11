@@ -1,0 +1,13 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+#wedding:
+#  path: /svatba
+  # the controller value has the format 'controller_class::method_name'
+#  controller: App\Controller\WeddingController::index
+
+#wed_obrad:
+#  path: /svatba/obrad
+  # the controller value has the format 'controller_class::method_name'
+#  controller: App\Controller\WeddingController::index

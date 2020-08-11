@@ -1,4 +1,12 @@
 {% extends "base.html.twig" %}
 {% block content %}
 
+<form action="" method="post">
+
+<button type="submit" class="btn btn-default {% if user.checkin == 2 %}btn-success{% endif %}" value-"2">Zúčastním se</button>
+<button type="submit" class="btn btn-default {% if user.checkin == 1 %}btn-primary{% endif %}" value-"-1">Možná</button>
+<button type="submit" class="btn btn-default {% if user.checkin == 0 %}btn-danger{% endif %}" value="0">Nezúčastním se</button>
+</form>
+
+
 {% endblock %}
