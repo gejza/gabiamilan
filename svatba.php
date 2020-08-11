@@ -87,6 +87,9 @@ if ($_GET['debug']) {
 $page = $_GET['p'];
 $data['page'] = $page;
 
+$page1 = new gam\Invite();
+$data['invite'] = $page1;
+
 if (strlen($page) > 6) {
     check_invite($page);
     $pf = 'invite.html';
@@ -123,6 +126,7 @@ $data['team']  = [
 //Kint::dump($data);
 echo $twig->render($pf.'.twig', $data);
 
+/*
 function g_img($src, $alt)
 {
     print('<img class="mx-auto d-block" src="/img/'. $src. '?v=25" alt="'.$alt.'" />');
@@ -135,6 +139,7 @@ function g_menu($name, $alt)
     g_img($name.'.png', $alt);
     print('</a></div>');
 }
+*/
 
 /*
 $condir = __DIR__ . '/page';
