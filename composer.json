@@ -11,5 +11,10 @@
     },
     "scripts": {
     "deploy:dev": "php vendor/dg/ftp-deployment/deployment deployment.dev.php"
+  },
+  "autoload": {
+    "psr-4": {
+      "gam\\":"src/"
+    }
   }
 }

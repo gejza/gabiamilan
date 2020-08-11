@@ -63,6 +63,7 @@ $twig = new \Twig\Environment($loader);
 
 echo $twig->render('index', ['name' => 'Fabien']);*/
 
+
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/templates');
 $twig = new \Twig\Environment($loader,['debug' => true,] /* ['cache' => 'compilation_cache',]*/);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
@@ -89,7 +90,11 @@ if (strlen($page) < 7) {
 }
 
 if ($keyh != '') {
-    if (check_invite($keyh)) {
+    $user = \gam\User::auth($keyh);
+
+    if ($user) {
+        $data['user'] = $user;
+
         // Setting a cookie
         setcookie('keyh', $keyh, time()+30*24*60*60);
     }
@@ -149,6 +154,7 @@ $data['team']  = [
     ['title' => 'Družička Ella', 'alt' => 'Ella', 'img' => '/img/photo/ella.jpg', 'desc' => 'Od Elly se toho dá čekat hodně, ale s dotazy se na ní neobracejte. Když budete chtít něco namalovat, tak to bude ta pravá koho hledáte.'],
     ['title' => 'Mládenec Filip', 'alt' => 'Filip', 'img' => '/img/photo/filip.jpg', 'desc' => 'Za Fílou si můžete přijít popovídat. V poslední době je u něj velké téma Minecraft, takže pokud chtece herní rady, nebo diskuze, určitě rád pomůže.'],
 ];
+
 
 Kint::dump($data);
 echo $twig->render($pf.'.twig', $data);
