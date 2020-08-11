@@ -99,7 +99,8 @@ class WeddingController extends AbstractController
     {
         $data = array();
         $data['controller_name'] = 'WeddingController';
-        $data['gitcommit'] = file_get_contents(__DIR__.'/../../git.version');
+        $gitfile = __DIR__.'/../../git.version';
+        $data['gitcommit'] = file_exists($gitfile) ? file_get_contents($gitfile) : 'dev';
         $data['fver'] = 32;
         $data['siteurl'] = 'none';
         $data['keyh'] = '';
