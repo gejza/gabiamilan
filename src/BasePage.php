@@ -13,9 +13,11 @@ class BasePage {
         $this->data = array();
 
         $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/../templates');
-        $this->twig = new \Twig\Environment($loader,['debug' => true,] /* ['cache' => 'compilation_cache',]*/);
+        $this->twig = new \Twig\Environment($loader,['debug' => false,] /* ['cache' => 'compilation_cache',]*/);
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
         $this->twig->addExtension(new \Kint\Twig\TwigExtension());
+
+        $this->data['gitcommit'] = file_get_contents(__DIR__.'/../git.version');
 
         $this->data['team']  = [ 
             ['title' => 'Ženich', 'alt' => 'Milan', 'img' => '/img/photo/milan.jpg', 'desc' => 'Druhá nejdůležitější osoba hned po nevěstě. Hlavním cílem je, aby ženich po svých došel na manželské lože.'],
@@ -50,7 +52,7 @@ class BasePage {
 
     function render($pf)
     {
-        \Kint::dump($this->data);
+        //\Kint::dump($this->data);
         return $this->twig->render($pf.'.twig', $this->data);
     }
  

@@ -3,4 +3,5 @@ vendor/
 temp/
 compilation_cache/
 deployment.dev.log
+git.version
 

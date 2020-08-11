@@ -8,6 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <meta name="git-commit" content="{{gitcommit}}">
         <link rel="manifest" href="/manifest.json?v={{fver}}">
     
         <title>Svatba Gabči a Mildy</title>
@@ -82,7 +83,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/countdown.js"></script>
     {% endblock %}
-    {% if debug_out == true %}
+    {% if debug_out is defined %}
     <pre>
         {{ dump() }}
     </pre>

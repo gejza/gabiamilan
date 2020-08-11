@@ -63,7 +63,7 @@ class SvatbaPage extends BasePage
         }
         $this->data['keyh'] = $keyh;
 
-        \Kint::dump($GLOBALS, $_SERVER); // Dump any number of variables
+        //\Kint::dump($GLOBALS, $_SERVER); // Dump any number of variables
         
         //Kint::trace(); // Dump a debug backtrace
         
@@ -76,7 +76,7 @@ class SvatbaPage extends BasePage
 
 
         $this->data['server'] = $_SERVER;
-        \Kint::dump($_COOKIE, $_REQUEST); 
+        //\Kint::dump($_COOKIE, $_REQUEST); 
 
 
         if ($page == 'obed') {
