@@ -15,7 +15,7 @@ class WeddingControllerTest extends WebTestCase
         $crawler = $client->request('GET', $url);
         $this->assertResponseIsSuccessful();
         if ($cont != '') {
-            $this->assertSelectorTextContains('h1', $cont);
+            $this->assertSelectorTextContains('h2', $cont);
 
         }
     }
