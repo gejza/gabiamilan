@@ -42,8 +42,8 @@ jobs:
       env: STABILITY=dev ACTION=update
 
     # Run tests against dev-master (currently 5.2.x-dev)
-    - php: 7.4
-      env: STABILITY=dev SYMFONY=5.* ACTION=update
+    #- php: 7.4
+    #  env: STABILITY=dev SYMFONY=5.* ACTION=update
 
 before_install:
   - phpenv config-rm xdebug.ini || true
