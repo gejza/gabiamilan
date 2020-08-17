@@ -11,8 +11,6 @@ class BaseController extends AbstractController
     {
         $data = array();
         $data['controller_name'] = 'WeddingController';
-        //$gitfile = __DIR__.'/../../git.version';
-        //$data['gitcommit'] = file_exists($gitfile) ? file_get_contents($gitfile) : 'dev';
         $data['fver'] = 32;
         $data['siteurl'] = 'none';
         $data['keyh'] = '';
@@ -31,7 +29,6 @@ class BaseController extends AbstractController
 
     protected function gen_nav($name, $alt)
     {
-        //$u = '/svatba/'.$name.'#nav';
         $u = $this->generateUrl('wed_'.$name);
         return array('name'=>$name, 'url'=>$u, 'alt'=>$alt);
     }

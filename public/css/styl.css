@@ -15,11 +15,6 @@ body {
   font-size: 40px;
 }
 
-.jumbotro2n {
-  margin: 60px 0;
-  text-align: center;
-}
-
 .menuimg img {
   margin-bottom: 10px;
   height: 110px;
@@ -78,13 +73,6 @@ td a:link { text-decoration: none; color: #7c7c7c }
   font-family: "Courier New", monospace;
 }
 
-h21 {
-  text-align: center;
-  font-size: 70px;
-  font-family: "Courier New", monospace;
-  color: #a6ede7;
-  text-decoration: underline
-}
 h2 {
   text-align: center;
   font-size: 25px;
@@ -99,9 +87,6 @@ p {
 
 /* Galerie */
 .gallery {
-  /* margin: 5px;
-  float: left;
-  width: 100%;*/
   min-height: 550px;
   }
 
@@ -114,17 +99,3 @@ p {
   text-align: center;
 }
 
-/*
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.mezera:before {
-  content: "";
-  display: table;
-  height: 70px
-}
-*/
