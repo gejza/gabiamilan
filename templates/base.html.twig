@@ -74,7 +74,7 @@
     {% block content %}{% endblock %}
 </div>
 {% block footer %}
-    <div class="footer"><em>{{ include('_git.gen.twig') }}</em>© 2020 Gabriela Štěpánová a Milan Dünghübel</div>
+    <div class="footer"><em>{{ include('_git.gen.twig', ignore_missing = true)  }}</em>© 2020 Gabriela Štěpánová a Milan Dünghübel</div>
     {% endblock %}
     {% block javascripts %}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
