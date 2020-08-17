@@ -100,8 +100,11 @@ class WeddingController extends AbstractController
      */
     public function invite(string $hash)
     {
+        $user = $this->getUser();
         $data = $this->gendata();
         $data['hash'] = $hash;
+        dump($user);
+        $data['user2'] = $user;
         $data['user'] = array('checkin' => 1);
         return $this->render('invite.html.twig', $data);
     }
