@@ -95,6 +95,17 @@ class WeddingController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/svatba/invite/{hash}", name="wed_invite")
+     */
+    public function invite(string $hash)
+    {
+        $data = $this->gendata();
+        $data['hash'] = $hash;
+        $data['user'] = array('checkin' => 1);
+        return $this->render('invite.html.twig', $data);
+    }
+
     function gendata()
     {
         $data = array();
