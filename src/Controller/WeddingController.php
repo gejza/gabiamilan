@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -10,7 +11,7 @@ class WeddingController extends BaseController
     /**
      * @Route("/svatba", name="wedding")
      */
-    public function index()
+    public function index(LoggerInterface $logger)
     {
         $data = $this->gendata();
         $data['team']  = [
@@ -23,6 +24,8 @@ class WeddingController extends BaseController
             ['title' => 'Družička Ella', 'alt' => 'Ella', 'img' => '/img/photo/ella.jpg', 'desc' => 'Od Elly se toho dá čekat hodně, ale s dotazy se na ní neobracejte. Když budete chtít něco namalovat, tak to bude ta pravá koho hledáte.'],
             ['title' => 'Mládenec Filip', 'alt' => 'Filip', 'img' => '/img/photo/filip.jpg', 'desc' => 'Za Fílou si můžete přijít popovídat. V poslední době je u něj velké téma Minecraft, takže pokud chtece herní rady, nebo diskuze, určitě rád pomůže.'],
         ];
+        $logger->warning('vraci data', $data);
+	    $logger->info("Saying hello to !");
 
         return $this->render('home.html.twig', $data);
     }
