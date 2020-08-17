@@ -11,8 +11,8 @@ class BaseController extends AbstractController
     {
         $data = array();
         $data['controller_name'] = 'WeddingController';
-        $gitfile = __DIR__.'/../../git.version';
-        $data['gitcommit'] = file_exists($gitfile) ? file_get_contents($gitfile) : 'dev';
+        //$gitfile = __DIR__.'/../../git.version';
+        //$data['gitcommit'] = file_exists($gitfile) ? file_get_contents($gitfile) : 'dev';
         $data['fver'] = 32;
         $data['siteurl'] = 'none';
         $data['keyh'] = '';
