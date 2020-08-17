@@ -21,7 +21,7 @@ env:
     # this env var in the phpunit.xml.dist file.
     - SYMFONY_PHPUNIT_DIR=./bin/.phpunit
     # 9 before
-    - SYMFONY_DEPRECATIONS_HELPER=disable=1
+    - SYMFONY_DEPRECATIONS_HELPER=1
     - ACTION="install"
     # Add the Symfony binary's path to PATH.
     - PATH="$HOME/.symfony/bin:$PATH"
