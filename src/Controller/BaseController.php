@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BaseController extends AbstractController
 {
-    function gendata()
+    protected function gendata()
     {
         $data = array();
         $data['controller_name'] = 'WeddingController';
@@ -29,7 +29,7 @@ class BaseController extends AbstractController
         return $data;
     }
 
-    function gen_nav($name, $alt)
+    protected function gen_nav($name, $alt)
     {
         //$u = '/svatba/'.$name.'#nav';
         $u = $this->generateUrl('wed_'.$name);
