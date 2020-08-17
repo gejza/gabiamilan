@@ -1,4 +1,5 @@
-svatba1/
+.vscode/
+.idea/
 temp/
 compilation_cache/
 deployment.dev.log
