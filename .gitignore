@@ -3,8 +3,9 @@
 temp/
 compilation_cache/
 deployment.dev.log
-git.version
 
+templates/_git.gen.twig
+*.log
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
