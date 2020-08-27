@@ -72,4 +72,9 @@ class Image
 
         return $this;
     }
+    
+    public function getOrigFile()
+    {
+	    return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
+    }
 }

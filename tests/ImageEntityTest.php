@@ -7,11 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 class ImageEntityTest extends TestCase
 {
-    public function testSomething(ImageRepository $imageRepository)
+    public function testSomething()
     {
-    	
-    	$ret = $imageRepository->findAll();
-    	var_dump($ret);
+    	//$rep = new ImageRepository();
+    	//$ret = $rep->findAll();
+    	//var_dump($ret);
         $this->assertTrue(true);
     }
 }
