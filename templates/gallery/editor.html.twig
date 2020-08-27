@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editor{% endblock %}
+{% block description %}Editor článků.{% endblock %}
+{% block content %}
+    {# Formulář pro editaci článku. #}
+    {{ form(editorForm) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script type="text/javascript">
+		tinymce.init({
+			selector: '#form_content',
+			plugins: [
+				'advlist autolink lists link image charmap print preview anchor',
+				'searchreplace visualblocks code fullscreen',
+				'insertdatetime media table contextmenu paste'
+			],
+			toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+			entities: '160,nbsp',
+			entity_encoding: 'raw'
+		});
+    </script>
+{% endblock %}

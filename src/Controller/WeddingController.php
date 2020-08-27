@@ -35,9 +35,7 @@ class WeddingController extends BaseController
      */
     public function sraz()
     {
-        return $this->render('sraz.html.twig',
-            $this->gendata()
-        );
+        return $this->render('sraz.html.twig', $this->gendata() );
     }
 
     /**
