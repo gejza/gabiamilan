@@ -99,3 +99,22 @@ p {
   text-align: center;
 }
 
+.img-edit-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*width: 100%;
+  height: 100%;*/
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+img:hover + .img-edit-button {
+  display: inline-block;
+}
+
+.img-edit-button:hover  {
+  display: inline-block;
+}
+
