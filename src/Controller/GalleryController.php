@@ -37,7 +37,7 @@ class GalleryController extends BaseController
     	$d = $this->gendata();
     	unset($d['menu']);
     	$d['images'] = $this->imageRepository->findAll();
-    	dump($d);
+    	//dump($d);
         return $this->render('gallery/index.html.twig', $d);
     }
 	

@@ -41,6 +41,7 @@ class ImageTool
 	public function update_info($fn, $img)
 	{
 		$exif = exif_read_data($fn, 'EXIF');
+		dump($exif);
 		$origdt = new \DateTime($exif["DateTimeOriginal"]);
 		$img->setOriginalTime($origdt);
 	}
