@@ -11,6 +11,10 @@
 
 <div class="row2 container content">
     <div id="lightgallery">
+        <a href="https://www.youtube.com/watch?v=oH3PPc0Cjvs" class="col-xs-6 col-md-3" data-poster="/uploads/IMG_6360.jpg" >
+            <img src="/uploads/thb/IMG_6323.jpg" />
+        </a>
+
     {% for image in images %}
 
         {#<div class="col-sm-6 col-md-4">
@@ -25,7 +29,7 @@
             </div>#}
         <a href="/uploads/{{ image.file() }}" class="col-xs-6 col-md-3">
 
-                <img class="thumbnail" src="/uploads/thb/{{ image.file() }}" />
+                <img class="thumbnail" src="/uploads/thb/{{ image.file() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" />
             </a>
     {% endfor %}
 </div>
@@ -47,7 +51,11 @@
     <script type="text/javascript">
 		$(document).ready(function() {
 			$("#lightgallery").lightGallery({
-				thumbnail:true
+				thumbnail:true,
+				loadYoutubeThumbnail: true,
+				youtubeThumbSize: 'default',
+				loadVimeoThumbnail: true,
+				vimeoThumbSize: 'thumbnail_medium',
 			});
 		});
     </script>
