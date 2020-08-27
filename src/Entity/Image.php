@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
 use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -75,6 +77,25 @@ class Image
     
     public function getOrigFile()
     {
-	    return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
+	    return \realpath(__DIR__.'/../../public/uploads/'.$this->getFile());
     }
+    
+    public function getThumbFile()
+    {
+	    return \realpath(__DIR__.'/../../').'/public/uploads/thumb/'.$this->getFile();
+    }
+	
+	public function getThumbUrl()
+	{
+		$package = new Package(new StaticVersionStrategy('v2'));
+		return $package->getUrl('/uploads/thumb/'.$this->getFile());
+		//return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
+	}
+	
+	public function getImageUrl()
+	{
+		$package = new Package(new StaticVersionStrategy('v2'));
+		return $package->getUrl('/uploads/'.$this->getFile());
+		//return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
+	}
 }

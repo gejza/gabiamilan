@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Image;
 use App\Repository\ImageRepository;
 use App\Service\ImageTool;
+use Psr\Log\LoggerInterface;
 
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -43,32 +45,36 @@ class GalleryController extends BaseController
 	
 	/**
 	 * Vytváří a zpracovává formulář pro editaci článku podle jeho URL.
-	 * @param string|null $url     URL článku
+	 * @param int|0 $id     URL článku
 	 * @param Request     $request HTTP požadavek
 	 * @return Response HTTP odpověď
-	 * @Route("/svatba/gallery/editor/{url}", name="image_editor")
+	 * @Route("/svatba/gallery/editor/{id}", name="image_editor")
 	 * @throws ORMException Jestliže nastane chyba při ukládání článku.
 	 */
-	public function editor(string $url = null, Request $request): Response
+	public function editor(int $id = 0, Request $request): Response
 	{
-		if ($url) { // Pokud byla zadána URL, pokusí se načíst článek podle ní.
-			if (!($image = $this->imageRepository->findOneByUrl($url))) {
+		if ($id) { // Pokud byla zadána URL, pokusí se načíst článek podle ní.
+			if (!($image = $this->imageRepository->find($id))) {
 				// Pokud se článek s danou URL nepodaří najít, vypíše chybovou hlášku a vytvoří nový s danou URL.
 				$this->addFlash('warning', 'Článek se zadanou URL nebyl nalezen!');
-				$image = (new Image())->setUrl($url);
+				//$image = (new Image())->setUrl($url);
 			}
 		} else $image = new Image(); // Jinak se nejedná o editaci článku a vytváří se nový článek.
 		
 		// Vytváření editačního formuláře podle entity článku.
 		$editorForm = $this->createFormBuilder($image)
-			->add('title', null, ['label' => 'Titulek', 'required' => false])
+			->add('title', null, ['label' => 'Titulek', 'required' => false, 'attr' => ['autofocus' => true],])
 			->add('file', null, ['label' => 'URL'])
-			//->add('description', null, ['label' => 'Popisek'])
+			->add('original_time', DateTimeType::class,
+				['label' => 'Date', 'help' => 'help.post_publication', 'html5' => true, 'widget' => 'single_text',
+					/*'format' => 'yyyy-MM-dd HH:MM:SS',*/])
 			//->add('content', null, ['label' => 'Obsah', 'required' => false])
 			->add('submit', SubmitType::class, ['label' => 'Uložit článek'])
 			->getForm();
-		
-		// Zpracování editačního formuláře.
+
+		//$editorForm = $this->createForm(PostType::class, $image);)
+			
+			// Zpracování editačního formuláře.
 		$editorForm->handleRequest($request);
 		if ($editorForm->isSubmitted() && $editorForm->isValid()) {
 			$this->imageRepository->save($image);
@@ -80,6 +86,7 @@ class GalleryController extends BaseController
 		// Předání editačního formuláře do šablony.
 		$d = $this->gendata();
 		$d['editorForm'] = $editorForm->createView();
+		$d['image'] = $image;
 		dump($d);
 		return $this->render('gallery/editor.html.twig', $d);
 	}
@@ -115,5 +122,15 @@ class GalleryController extends BaseController
 		
 		$ret = $uploadedFile->move($destination);
 		return new Response($imageTool->img($ret->getRealPath()));
+	}
+	
+	/**
+	 * @Route("/svatba/gallery/check", name="gallery_check")
+	 */
+	public function check(ImageTool $imageTool, LoggerInterface $logger): Response
+	{
+		$imageTool->setLogger($logger);
+		$imageTool->check($this->imageRepository);
+		return $this->render('gallery/check.html.twig', $this->gendata());
 	}
 }

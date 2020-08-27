@@ -6,6 +6,9 @@ namespace App\Service;
 // Link image type to correct image loader and saver
 // - makes it easier to add additional types later on
 // - makes the function easier to read
+use App\Repository\ImageRepository;
+use Psr\Log\LoggerInterface;
+
 const IMAGE_HANDLERS = [
 	IMAGETYPE_JPEG => [
 		'load' => 'imagecreatefromjpeg',
@@ -25,6 +28,29 @@ const IMAGE_HANDLERS = [
 
 class ImageTool
 {
+	private $logger;
+	
+	/**
+	 * @required
+	 */
+	public function setLogger(LoggerInterface $logger)
+	{
+		$this->logger = $logger;
+	}
+
+	public function check(ImageRepository $imageRepository)
+	{
+		foreach ($imageRepository->findAll() as $image) {
+			$thf = $image->getThumbFile();
+			//dump($thf);
+			if (!is_file($thf)) {
+				$this->createThumbnail($image->getOrigFile(), $thf, 160);
+			}
+		}
+		
+	}
+	
+	
 	public function img($fn)
 	{
 		$this->createThumbnail($fn, $fn . '.thb.jpg', 160);
@@ -67,6 +93,8 @@ class ImageTool
 	 */
 	function createThumbnail($src, $dest, $targetWidth, $targetHeight = null) {
 		
+		//echo "Creating thumb $dest from $src";
+		$this->logger->info("Creating thumb $dest from $src");
 		// 1. Load the image from the given $src
 		// - see if the file actually exists
 		// - check if it's of a valid image type

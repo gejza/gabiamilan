@@ -30,6 +30,11 @@ class ImageRepository extends ServiceEntityRepository
 		$this->getEntityManager()->persist($image);
 		$this->getEntityManager()->flush($image);
 	}
+	
+	public function findOneByUrl(string $url): ?Image
+	{
+		return $this->findOneBy(['file' => $url]);
+	}
     // /**
     //  * @return Image[] Returns an array of Image objects
     //  */

@@ -4,6 +4,9 @@
 {% block description %}Editor článků.{% endblock %}
 {% block content %}
     {# Formulář pro editaci článku. #}
+	{% if image is defined %}
+	<img class="thumbnail" src="{{ image.getThumbUrl() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" />
+	{% endif %}
     {{ form(editorForm) }}
 {% endblock %}
 

@@ -24,9 +24,9 @@
                      </div>
                 </div>
             </div>#}
-        <a href="/uploads/{{ image.file() }}" class="col-xs-6 col-md-3">
+        <a href="{{ image.getImageUrl() }}" class="col-xs-6 col-md-3">
 
-                <img class="thumbnail" src="/uploads/thb/{{ image.file() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" />
+                <img class="thumbnail" src="{{ image.getThumbUrl() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" />
             </a>
     {% endfor %}
 </div>
