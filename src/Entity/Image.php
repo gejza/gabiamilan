@@ -34,6 +34,11 @@ class Image
      */
     private $originalTime;
 
+    /**
+     * @ORM\Column(type="smallint", options={"default":0})
+     */
+    private $visibility = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,16 +91,34 @@ class Image
     }
 	
 	public function getThumbUrl()
-	{
-		$package = new Package(new StaticVersionStrategy('v2'));
-		return $package->getUrl('/uploads/thumb/'.$this->getFile());
-		//return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
-	}
+         	{
+	            if (strpos($this->getFile(), 'http') === 0) {
+		            return 'http://localhost:8000/uploads/thumb/IMG_6353.jpg?v2';
+	            }
+         		$package = new Package(new StaticVersionStrategy('v2'));
+         		return $package->getUrl('/uploads/thumb/'.$this->getFile());
+         		//return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
+         	}
 	
 	public function getImageUrl()
-	{
-		$package = new Package(new StaticVersionStrategy('v2'));
-		return $package->getUrl('/uploads/'.$this->getFile());
-		//return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
-	}
+         	{
+         		if (strpos($this->getFile(), 'http') === 0) {
+         			return $this->getFile();
+	            }
+         		$package = new Package(new StaticVersionStrategy('v2'));
+         		return $package->getUrl('/uploads/'.$this->getFile());
+         		//return \dirname(__DIR__).'/public/uploads/'.$this->getFile();
+         	}
+
+    public function getVisibility(): ?int
+    {
+        return $this->visibility;
+    }
+
+    public function setVisibility(int $visibility): self
+    {
+        $this->visibility = $visibility;
+
+        return $this;
+    }
 }

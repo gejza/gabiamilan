@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\Routing\Annotation\Route;
@@ -63,8 +63,14 @@ class GalleryController extends BaseController
 		
 		// Vytváření editačního formuláře podle entity článku.
 		$editorForm = $this->createFormBuilder($image)
+			->add('visibility', ChoiceType::class, [
+				'choices'  => [
+					'Public' => 0,
+					'Private' => 1,
+					'Hidden' => 2,
+				],])
 			->add('title', null, ['label' => 'Titulek', 'required' => false, 'attr' => ['autofocus' => true],])
-			->add('file', null, ['label' => 'URL'])
+			->add('file', null, ['label' => 'URL', 'disabled' => true])
 			->add('original_time', DateTimeType::class,
 				['label' => 'Date', 'help' => 'help.post_publication', 'html5' => true, 'widget' => 'single_text',
 					/*'format' => 'yyyy-MM-dd HH:MM:SS',*/])
