@@ -114,7 +114,12 @@ class Image
     {
         return $this->visibility;
     }
-
+	
+	public function getVisibilityString(): ?string
+	{
+		return array("Public", "Private", "Hidden")[$this->visibility];
+	}
+    
     public function setVisibility(int $visibility): self
     {
         $this->visibility = $visibility;

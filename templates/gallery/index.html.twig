@@ -24,11 +24,10 @@
                      </div>
                 </div>
             </div>#}
-        <div data-src="{{ image.getImageUrl() }}" href="{{ image.getImageUrl() }}" class="col-xs-6 col-md-3">
+        <div data-src="{{ image.getImageUrl() }}" href="{{ image.getImageUrl() }}" class="ccol-xs-6 ccol-md-2 img-block">
 
-                <img class="thumbnail" src="{{ image.getThumbUrl() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" />
-                    <a href="/svatba/gallery/editor/{{ image.id }}" class="btn btn-primary img-edit-button" role="button">Edit</a>
-                    </div>
+                <img class="thumbnail center-block" src="{{ image.getThumbUrl() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" />
+                  </div>
     {% endfor %}
 </div>
     </div>

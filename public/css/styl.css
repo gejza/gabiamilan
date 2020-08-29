@@ -99,6 +99,12 @@ p {
   text-align: center;
 }
 
+.img-block {
+  float: left;
+  width: 185px;
+  height: 185px;
+}
+
 .img-edit-button {
   display: none;
   position: absolute;

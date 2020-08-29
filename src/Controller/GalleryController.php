@@ -44,6 +44,26 @@ class GalleryController extends BaseController
     }
 	
 	/**
+	 * @Route("/svatba/gallery/list", name="gallery_list")
+	 */
+	public function list(ImageTool $imageTool): Response
+	{
+		$d = $this->gendata();
+		unset($d['menu']);
+		$d['images'] = $this->imageRepository->findAll();
+		dump($d);
+		return $this->render('gallery/list.html.twig', $d);
+	}
+	
+	/**
+	 * @Route("/svatba/gallery/vis", methods={"POST"}, name="gallery_vis")
+	 */
+	public function vis(ImageTool $imageTool, Request $request): Response
+	{
+		return new Response(var_dump($request));
+	}
+	
+	/**
 	 * Vytváří a zpracovává formulář pro editaci článku podle jeho URL.
 	 * @param int|0 $id     URL článku
 	 * @param Request     $request HTTP požadavek
@@ -75,7 +95,7 @@ class GalleryController extends BaseController
 				['label' => 'Date', 'help' => 'help.post_publication', 'html5' => true, 'widget' => 'single_text',
 					/*'format' => 'yyyy-MM-dd HH:MM:SS',*/])
 			//->add('content', null, ['label' => 'Obsah', 'required' => false])
-			->add('submit', SubmitType::class, ['label' => 'Uložit článek'])
+			->add('submit', SubmitType::class, ['label' => 'Save'])
 			->getForm();
 
 		//$editorForm = $this->createForm(PostType::class, $image);)
@@ -85,7 +105,7 @@ class GalleryController extends BaseController
 		if ($editorForm->isSubmitted() && $editorForm->isValid()) {
 			$this->imageRepository->save($image);
 			$this->addFlash('notice', 'Článek byl úspěšně uložen.');
-			return $this->redirectToRoute('gallery');
+			return $this->redirectToRoute('gallery_list', ['_fragment' => "img$id"]);
 			//return $this->redirectToRoute('image', ['url' => $image->getUrl()]);
 		}
 		
