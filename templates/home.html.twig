@@ -3,10 +3,10 @@
 <h2 class="page-title">Vítáme Vás na našem svatebním webu. Najdete zde veškeré informace k nadcházející události. Zatím jsou stránky ve výstavbě, tak prosíme za strpení, postupně to tu budeme plnit. </h2>
 
 <h2 class="page-title">Důležité osoby: </h2>
-<div class="container">
+<div class="container row">
         {% for pp in team %}
 
-<div class="gallery col-xs-6 col-sm-4 col-md-3">
+<div class="gallery col-6 col-md-4 col-lg-3">
    <img src="{{pp.img}}" alt="{{pp.alt}}" />
   <h2 class="desc">{{pp.title}}</h2>
   <p>{{pp.desc}}</p>

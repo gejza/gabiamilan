@@ -6,19 +6,19 @@
 <hr class="featurette-divider">
 <a class="row featurette" href="{{tip.url}}">
   {% if loop.index is odd %}
-  <div class="col-md-7">
+  <div class="col-lg-7">
     {% else %}
-    <div class="col-md-7 col-md-push-5"> 
+    <div class="col-lg-7 order-md-2">
     {% endif %}
     <h2 class="featurette-heading">{{tip.title}}</h2>
     <p class="lead">{{tip.desc}}</p>
   </div>
   {% if loop.index is odd %}
-  <div class="col-md-5">
+  <div class="col-lg-5">
     {% else %}
-    <div class="col-md-5 col-md-pull-7">
+    <div class="col-lg-5 order-md-1">
     {% endif %}
-    <img class="featurette-image img-responsive center-block" src="/img/{{tip.img}}" alt="{{tip.title}}">
+    <img class="featurette-image img-fluid mx-auto" src="/img/{{tip.img}}" alt="{{tip.title}}">
   </div>
 </a>
 {% endfor %}
