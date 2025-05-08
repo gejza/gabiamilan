@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}Gallery{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <h2 class="page-title">Fotky ze svatby</h2>
+
+<div class="container content">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Image</th>
+            <th>Visibility</th>
+            <th>Time</th>
+            <th></th>
+        </tr>
+        {% for image in images %}
+        <tr id="img{{ image.id }}">
+            <td><img class="thumbnail" src="{{ image.getThumbUrl() }}" alt="{{ image.originalTime().format('Y-m-d H:i:s') }}" /></td>
+            <td>{{ image.visibilityString() }}</td>
+            <td>{{ image.originalTime().format('Y-m-d H:i:s') }}</td>
+            <td><a href="/svatba/gallery/editor/{{ image.id }}" class="btn btn-default" role="button">Edit</a></td>
+        </tr>
+        {% endfor %}
+
+</table>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/script.js') }}"></script>
+ {% endblock %}

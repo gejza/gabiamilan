@@ -1,0 +1,8 @@
+{# Vlastní definice vzhledu jednoho řádku formuláře. #}
+{% block form_row %}
+    <div>
+        {{ form_errors(form) }}<br>
+        {{ form_label(form) }}<br>
+        {{ form_widget(form) }}
+    </div>
+{% endblock form_row %}

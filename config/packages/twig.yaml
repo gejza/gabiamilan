@@ -1,2 +1,5 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    # Nastaví všem formulářům v aplikaci tuto šablonu pro vykreslování.
+    form_themes:
+        - 'form/fields.html.twig'
