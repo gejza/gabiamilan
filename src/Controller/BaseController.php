@@ -10,8 +10,8 @@ class BaseController extends AbstractController
     protected function gendata()
     {
         $data = array();
-        $data['controller_name'] = 'WeddingController';
-        $data['fver'] = 32;
+        //$data['controller_name'] = 'WeddingController';
+        //$data['fver'] = 32;
         $data['siteurl'] = 'none';
         $data['keyh'] = '';
         $data['team'] = array();

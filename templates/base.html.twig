@@ -8,13 +8,13 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/manifest.json?v={{fver}}">
+        <link rel="manifest" href="/manifest.json">
     
         <title>Svatba Gabči a Mildy</title>
         <!-- Bootstrap -->
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/countdown.css">
-        <link rel="stylesheet" type="text/css" href="/css/styl.css?v={{fver}}">
+        <link rel="stylesheet" type="text/css" href="/css/styl.css">
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56377132-3"></script>
         <script>
@@ -41,14 +41,19 @@
         {% block stylesheets %}{% endblock %}
     </head>
 <body>
+
+{% if countdown is defined %}
 <nav class="navbar navbar-default navbar-fixed-top text-center">
-<div class='countdown' data-date="2020-08-22" data-time="12:00"></div></nav>
+<div class='countdown' data-date="2020-09-22" data-time="12:00"></div>
+</nav>
+{% endif %}
 
 <div class="jumbotron text-center">
       <a href="{{path('wedding')}}" class=""><img class="mx-auto d-block" src="/img/venec.png" alt="Svatba Gabči a Mildy"/></a>
 
         </div>
 
+{% if menu is defined %}
       <div class="container" id="nav">
       <div class="row">
         {% for nav in menu %}
@@ -60,6 +65,7 @@
         {% endfor %}
         </div>
       </div>
+{% endif %}
 
 {% if keyh != '' %}
     {#
